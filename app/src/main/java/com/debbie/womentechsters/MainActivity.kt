@@ -1,5 +1,6 @@
 package com.debbie.womentechsters
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         val joinButton:Button = this.findViewById(R.id.joinNowButton)
 
         joinButton.setOnClickListener{
+            val intent = Intent(this,LoginActivity::class.java)
 
+            startActivity(intent)
         }
     }
 
