@@ -83,10 +83,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button"/>
     <Button
-        android:id="@+id/newAccount"
+        android:id="@+id/createNewAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Or Create a New Account"
+        android:text="Create New Account"
         android:textSize="15sp"
         android:textAlignment="center"
         android:backgroundTint="#E1FAE0"
