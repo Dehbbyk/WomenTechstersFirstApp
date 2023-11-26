@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.accessibility.AccessibilityEvent
 import android.widget.Button
+import android.widget.EditText
+import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,14 +26,30 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         val loginBtn: Button = findViewById(R.id.loginButton)
+        val usernameEdt: EditText = findViewById(R.id.editText)
+        var passwordEdt: EditText = findViewById(R.id.editText2)
+       loginBtn.setOnClickListener{
+           val userUsernameEntered: String = usernameEdt.text.toString()
+           val userPasswordEntered: String = passwordEdt.text.toString()
+           var message = "";
+           if(userUsernameEntered.isEmpty() and userPasswordEntered.isEmpty()){
+               message = "You need to input a username and password"
+           }else{
+               if (userUsernameEntered.isEmpty()){
+                   message = "Input a username"
+               }else{
+                   if (userPasswordEntered.isEmpty())
+                       message ="Input a password"
+               }
+           }
+           Snackbar.make(findViewById(R.id.loginAct), message, Snackbar.LENGTH_LONG).show()
+       }
+
         loginBtn.setOnClickListener{
-            navigateToLoginPage()
+            val i = Intent(this, HomeActivity:: class.java)
+
+            startActivity(i)
         }
     }
 
-    private fun navigateToLoginPage() {
-        val i = Intent(this, HomeActivity:: class.java)
-
-        startActivity(i)
-    }
 }
