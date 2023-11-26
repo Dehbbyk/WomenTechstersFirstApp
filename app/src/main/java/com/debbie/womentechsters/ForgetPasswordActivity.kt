@@ -20,7 +20,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
 
             var message = "";
             if(userEmailEntered.isEmpty()){
-                message = "You need to enter a message"
+                message = "You need to enter an email address"
             }else{
                 message = "A recovery email has been sent to $userEmailEntered"
             }

@@ -27,29 +27,28 @@ class LoginActivity : AppCompatActivity() {
         }
         val loginBtn: Button = findViewById(R.id.loginButton)
         val usernameEdt: EditText = findViewById(R.id.editText)
-        var passwordEdt: EditText = findViewById(R.id.editText2)
+        val passwordEdt: EditText = findViewById(R.id.editText2)
        loginBtn.setOnClickListener{
            val userUsernameEntered: String = usernameEdt.text.toString()
            val userPasswordEntered: String = passwordEdt.text.toString()
            var message = "";
-           if(userUsernameEntered.isEmpty() and userPasswordEntered.isEmpty()){
-               message = "You need to input a username and password"
+           if(userUsernameEntered.isEmpty() && userPasswordEntered.isEmpty()){
+               message = "You need to input a username and password";
            }else{
-               if (userUsernameEntered.isEmpty()){
-                   message = "Input a username"
+               if(userUsernameEntered.isEmpty()){
+                   message = "You need to input a username"
                }else{
-                   if (userPasswordEntered.isEmpty())
-                       message ="Input a password"
+                   if(userPasswordEntered.isEmpty()){
+                       message = "You need to input a password"
+                   }else{
+                       val i = Intent(this, HomeActivity:: class.java)
+                       startActivity(i)
+                   }
                }
+
            }
            Snackbar.make(findViewById(R.id.loginAct), message, Snackbar.LENGTH_LONG).show()
        }
 
-        loginBtn.setOnClickListener{
-            val i = Intent(this, HomeActivity:: class.java)
-
-            startActivity(i)
         }
     }
-
-}
