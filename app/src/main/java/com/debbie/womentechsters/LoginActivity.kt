@@ -25,9 +25,13 @@ class LoginActivity : AppCompatActivity() {
         }
         val loginBtn: Button = findViewById(R.id.loginButton)
         loginBtn.setOnClickListener{
-            val i = Intent(this, HomeActivity:: class.java)
-
-            startActivity(i)
+            navigateToLoginPage()
         }
+    }
+
+    private fun navigateToLoginPage() {
+        val i = Intent(this, HomeActivity:: class.java)
+
+        startActivity(i)
     }
 }
